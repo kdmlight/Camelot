@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_tile_collision",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_tile_collision",
+  "parent":{
+    "name":"Camelot",
+    "path":"Camelot.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
