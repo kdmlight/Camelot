@@ -1,16 +1,92 @@
-var pressed_left = keyboard_check(vk_left);
-var pressed_right = keyboard_check(vk_right);
-var pressed_up = keyboard_check(vk_up);
-var pressed_down = keyboard_check(vk_down);
+var h = keyboard_check(ord("D")) - keyboard_check(ord("A"));
+var v = keyboard_check(ord("S")) - keyboard_check(ord("W"));
 
-var xdirection = pressed_right - pressed_left;
-x = x + (xdirection * move_speed);
+var move_x = 0;
+var move_y = 0;
 
-var ydirection = pressed_down - pressed_up;
-y = y + (ydirection * move_speed);
+/// RUCH + ANIMACJE
+if (h != 0 || v != 0)
+{
+    var len = point_distance(0, 0, h, v);
+    h /= len;
+    v /= len;
 
-if(xdirection == -1) set_animation("left");
-else if (xdirection == 1) set_animation("right");
-else if (xdirection == 1) set_animation("up");
-else if (xdirection == -1) set_animation("down");
-else                       set_animation("idling");
+    move_x = h * move_speed;
+    move_y = v * move_speed;
+
+    // WYBÓR KIERUNKU
+    if (abs(h) > abs(v))
+    {
+        if (h > 0)
+        {
+            sprite_index = spr_player_walk_right;
+            facing = "right";
+        }
+        else
+        {
+            sprite_index = spr_player_walk_left;
+            facing = "left";
+        }
+    }
+    else
+    {
+        if (v > 0)
+        {
+            sprite_index = spr_player_walk_down;
+            facing = "down";
+        }
+        else
+        {
+            sprite_index = spr_player_walk_up;
+            facing = "up";
+        }
+    }
+
+    image_speed = 0.2;
+}
+else
+{
+    image_speed = 0;
+
+    switch (facing)
+    {
+        case "down":  sprite_index = spr_player_idle_down;  break;
+        case "up":    sprite_index = spr_player_idle_up;    break;
+        case "left":  sprite_index = spr_player_idle_left;  break;
+        case "right": sprite_index = spr_player_idle_right; break;
+    }
+
+    image_index = 0;
+}
+
+/// =======================
+/// KOLIZJE TILEMAP
+/// =======================
+
+/// RUCH X
+var can_move_x = true;
+for (var i = 0; i < array_length(walls); i++)
+{
+    if (tilemap_get_at_pixel(walls[i], x + move_x, y) != 0)
+    {
+        can_move_x = false;
+        break;
+    }
+}
+
+if (can_move_x)
+    x += move_x;
+
+/// RUCH Y
+var can_move_y = true;
+for (var i = 0; i < array_length(walls); i++)
+{
+    if (tilemap_get_at_pixel(walls[i], x, y + move_y) != 0)
+    {
+        can_move_y = false;
+        break;
+    }
+}
+
+if (can_move_y)
+    y += move_y;

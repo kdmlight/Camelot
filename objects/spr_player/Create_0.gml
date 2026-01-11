@@ -1,14 +1,15 @@
-function set_animation(state)
-{
-    new_animation = variable_struct_get(animations, state);
-    animation_frames = new_animation.frames
-}
+move_speed = 4;
 
+// ostatni kierunek, w który patrzy postać
+facing = "down";
 
-move_speed = 3;
-animations = {
-  
+// animacja
+image_speed = 0.2;
 
-set_animation("idling");
-
-show_debug_message(animation_frames);
+// pobranie ID tilemap kolizyjnych
+walls = [
+    layer_tilemap_get_id("Tiles_Walls"),
+    layer_tilemap_get_id("Tiles_Walls2"),
+    layer_tilemap_get_id("Tiles_Walls_Decor"),
+    layer_tilemap_get_id("Tiles_Walls_Decor2")
+];
