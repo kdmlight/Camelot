@@ -52,6 +52,7 @@
   "name":"Camelot",
   "resources":[
     {"id":{"name":"ReadMe","path":"notes/ReadMe/ReadMe.yy",},},
+    {"id":{"name":"obj_attack","path":"objects/obj_attack/obj_attack.yy",},},
     {"id":{"name":"Object2","path":"objects/Object2/Object2.yy",},},
     {"id":{"name":"spr_player","path":"objects/spr_player/spr_player.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
@@ -74,6 +75,8 @@
     {"id":{"name":"spr_player_walk_right","path":"sprites/spr_player_walk_right/spr_player_walk_right.yy",},},
     {"id":{"name":"spr_player_walk_up","path":"sprites/spr_player_walk_up/spr_player_walk_up.yy",},},
     {"id":{"name":"spr_slash","path":"sprites/spr_slash/spr_slash.yy",},},
+    {"id":{"name":"sprite_attack1","path":"sprites/sprite_attack1/sprite_attack1.yy",},},
+    {"id":{"name":"sprite_attack2","path":"sprites/sprite_attack2/sprite_attack2.yy",},},
     {"id":{"name":"Sprite47","path":"sprites/Sprite47/Sprite47.yy",},},
     {"id":{"name":"torch_1","path":"sprites/torch_1/torch_1.yy",},},
     {"id":{"name":"torch_2","path":"sprites/torch_2/torch_2.yy",},},

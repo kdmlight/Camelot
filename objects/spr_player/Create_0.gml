@@ -13,3 +13,8 @@ walls = [
     layer_tilemap_get_id("Tiles_Walls_Decor"),
     layer_tilemap_get_id("Tiles_Walls_Decor2")
 ];
+
+hp = 10;
+hp_total = hp;
+damage = 1;
+

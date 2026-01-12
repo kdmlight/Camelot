@@ -59,6 +59,16 @@ else
     image_index = 0;
 }
 
+if (keyboard_check_pressed(vk_space))
+{
+    var _inst = instance_create_depth(x, y, depth, obj_attack);
+    _inst.image_angle = point_direction(0, 0, _hor, _ver)
+    _inst.damage *= damage;
+}
+
+
+
+
 /// =======================
 /// KOLIZJE TILEMAP
 /// =======================
@@ -90,3 +100,4 @@ for (var i = 0; i < array_length(walls); i++)
 
 if (can_move_y)
     y += move_y;
+
